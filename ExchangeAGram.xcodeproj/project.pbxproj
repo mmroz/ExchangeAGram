@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E40FE5B71ED0D6B4004947EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5B61ED0D6B4004947EF /* AppDelegate.swift */; };
+		E40FE5BC1ED0D6B4004947EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40FE5BA1ED0D6B4004947EF /* Main.storyboard */; };
+		E40FE5BF1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5BD1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld */; };
+		E40FE5C11ED0D6B4004947EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40FE5C01ED0D6B4004947EF /* Assets.xcassets */; };
+		E40FE5C41ED0D6B4004947EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40FE5C21ED0D6B4004947EF /* LaunchScreen.storyboard */; };
+		E40FE5CF1ED0D6B4004947EF /* ExchangeAGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5CE1ED0D6B4004947EF /* ExchangeAGramUITests.swift */; };
+		E40FE5DA1ED0D824004947EF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5D91ED0D824004947EF /* FeedViewController.swift */; };
+		E40FE5DF1ED0DAD1004947EF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */; };
+		E46BEBE91ED36AB4007F9A3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */; };
+		E46BEBEB1ED37AA7007F9A3A /* Sdk in Resources */ = {isa = PBXBuildFile; fileRef = E46BEBEA1ED37AA7007F9A3A /* Sdk */; };
+		E46BEBED1ED37BA0007F9A3A /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEBEC1ED37BA0007F9A3A /* AWSCore.framework */; };
+		E46BEBEE1ED37BA0007F9A3A /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEBEC1ED37BA0007F9A3A /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E46BEBF21ED37C49007F9A3A /* AmazonAws in Resources */ = {isa = PBXBuildFile; fileRef = E46BEBF11ED37C49007F9A3A /* AmazonAws */; };
+		E46BEBF41ED37CC0007F9A3A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEBF31ED37CC0007F9A3A /* libsqlite3.tbd */; };
+		E46BEBF61ED37CCB007F9A3A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEBF51ED37CCB007F9A3A /* libz.tbd */; };
+		E46BEBFA1ED37E24007F9A3A /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEBF91ED37E24007F9A3A /* AWSMobileHubHelper.framework */; };
+		E46BEC011ED37F2C007F9A3A /* AWSMobileHubHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEC001ED37F2C007F9A3A /* AWSMobileHubHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E46BEC031ED37F77007F9A3A /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC021ED37F77007F9A3A /* AWSMobileClient.swift */; };
+		E47B71E61ED240D700F68ADD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E51ED240D700F68ADD /* FeedCell.swift */; };
+		E47B71E81ED244A600F68ADD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E71ED244A600F68ADD /* FilterViewController.swift */; };
+		E47B71EA1ED247A000F68ADD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E91ED247A000F68ADD /* FilterCell.swift */; };
+		E47B71ED1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */; };
+		E47B71EE1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E40FE5CB1ED0D6B4004947EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40FE5AB1ED0D6B4004947EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40FE5B21ED0D6B4004947EF;
+			remoteInfo = ExchangeAGram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E46BEBEF1ED37BA1007F9A3A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E46BEC011ED37F2C007F9A3A /* AWSMobileHubHelper.framework in Embed Frameworks */,
+				E46BEBEE1ED37BA0007F9A3A /* AWSCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E40FE5B31ED0D6B4004947EF /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40FE5B61ED0D6B4004947EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E40FE5BB1ED0D6B4004947EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E40FE5BE1ED0D6B4004947EF /* ExchangeAGram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExchangeAGram.xcdatamodel; sourceTree = "<group>"; };
+		E40FE5C01ED0D6B4004947EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E40FE5C31ED0D6B4004947EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E40FE5C51ED0D6B4004947EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40FE5CA1ED0D6B4004947EF /* ExchangeAGramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeAGramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40FE5CE1ED0D6B4004947EF /* ExchangeAGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAGramUITests.swift; sourceTree = "<group>"; };
+		E40FE5D01ED0D6B4004947EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40FE5D91ED0D824004947EF /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ../FeedViewController.swift; sourceTree = "<group>"; };
+		E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E46BEBEA1ED37AA7007F9A3A /* Sdk */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sdk; sourceTree = "<group>"; };
+		E46BEBEC1ED37BA0007F9A3A /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = Sdk/Aws/AWSCore.framework; sourceTree = "<group>"; };
+		E46BEBF11ED37C49007F9A3A /* AmazonAws */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AmazonAws; sourceTree = "<group>"; };
+		E46BEBF31ED37CC0007F9A3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E46BEBF51ED37CCB007F9A3A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E46BEBF91ED37E24007F9A3A /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSMobileHubHelper.framework; path = ExchangeAGram/AmazonAws/AWSMobileHubHelper.framework; sourceTree = "<group>"; };
+		E46BEBFD1ED37EF6007F9A3A /* AWSMobileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AWSMobileClient.swift; path = ExchangeAGram/AmazonAws/AWSMobileClient.swift; sourceTree = "<group>"; };
+		E46BEC001ED37F2C007F9A3A /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSMobileHubHelper.framework; path = ExchangeAGram/AmazonAws/AWSMobileHubHelper.framework; sourceTree = "<group>"; };
+		E46BEC021ED37F77007F9A3A /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
+		E47B71E51ED240D700F68ADD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCell.swift; path = ../FeedCell.swift; sourceTree = "<group>"; };
+		E47B71E71ED244A600F68ADD /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = ../FilterViewController.swift; sourceTree = "<group>"; };
+		E47B71E91ED247A000F68ADD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataClass.swift"; path = "../FeedItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataProperties.swift"; path = "../FeedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E40FE5B01ED0D6B4004947EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46BEBFA1ED37E24007F9A3A /* AWSMobileHubHelper.framework in Frameworks */,
+				E46BEBF61ED37CCB007F9A3A /* libz.tbd in Frameworks */,
+				E46BEBF41ED37CC0007F9A3A /* libsqlite3.tbd in Frameworks */,
+				E40FE5DF1ED0DAD1004947EF /* MobileCoreServices.framework in Frameworks */,
+				E46BEBED1ED37BA0007F9A3A /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40FE5C71ED0D6B4004947EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E40FE5AA1ED0D6B4004947EF = {
+			isa = PBXGroup;
+			children = (
+				E46BEC041ED37F93007F9A3A /* AWS */,
+				E40FE5B51ED0D6B4004947EF /* ExchangeAGram */,
+				E40FE5CD1ED0D6B4004947EF /* ExchangeAGramUITests */,
+				E40FE5B41ED0D6B4004947EF /* Products */,
+				E40FE5DD1ED0DAD1004947EF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E40FE5B41ED0D6B4004947EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E40FE5B31ED0D6B4004947EF /* ExchangeAGram.app */,
+				E40FE5CA1ED0D6B4004947EF /* ExchangeAGramUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E40FE5B51ED0D6B4004947EF /* ExchangeAGram */ = {
+			isa = PBXGroup;
+			children = (
+				E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */,
+				E47B71E71ED244A600F68ADD /* FilterViewController.swift */,
+				E47B71E51ED240D700F68ADD /* FeedCell.swift */,
+				E47B71E91ED247A000F68ADD /* FilterCell.swift */,
+				E40FE5B61ED0D6B4004947EF /* AppDelegate.swift */,
+				E40FE5D91ED0D824004947EF /* FeedViewController.swift */,
+				E47B71EF1ED3283600F68ADD /* Model */,
+				E40FE5BA1ED0D6B4004947EF /* Main.storyboard */,
+				E40FE5C01ED0D6B4004947EF /* Assets.xcassets */,
+				E40FE5C21ED0D6B4004947EF /* LaunchScreen.storyboard */,
+				E40FE5C51ED0D6B4004947EF /* Info.plist */,
+				E40FE5BD1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld */,
+				E46BEBF11ED37C49007F9A3A /* AmazonAws */,
+			);
+			path = ExchangeAGram;
+			sourceTree = "<group>";
+		};
+		E40FE5CD1ED0D6B4004947EF /* ExchangeAGramUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E40FE5CE1ED0D6B4004947EF /* ExchangeAGramUITests.swift */,
+				E40FE5D01ED0D6B4004947EF /* Info.plist */,
+			);
+			path = ExchangeAGramUITests;
+			sourceTree = "<group>";
+		};
+		E40FE5DD1ED0DAD1004947EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E46BEBFD1ED37EF6007F9A3A /* AWSMobileClient.swift */,
+				E46BEBF91ED37E24007F9A3A /* AWSMobileHubHelper.framework */,
+				E46BEBF51ED37CCB007F9A3A /* libz.tbd */,
+				E46BEBF31ED37CC0007F9A3A /* libsqlite3.tbd */,
+				E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E46BEC041ED37F93007F9A3A /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				E46BEC021ED37F77007F9A3A /* AWSMobileClient.swift */,
+				E46BEC001ED37F2C007F9A3A /* AWSMobileHubHelper.framework */,
+				E46BEBEC1ED37BA0007F9A3A /* AWSCore.framework */,
+				E46BEBEA1ED37AA7007F9A3A /* Sdk */,
+			);
+			name = AWS;
+			sourceTree = "<group>";
+		};
+		E47B71EF1ED3283600F68ADD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */,
+				E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E40FE5B21ED0D6B4004947EF /* ExchangeAGram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40FE5D31ED0D6B4004947EF /* Build configuration list for PBXNativeTarget "ExchangeAGram" */;
+			buildPhases = (
+				E40FE5AF1ED0D6B4004947EF /* Sources */,
+				E40FE5B01ED0D6B4004947EF /* Frameworks */,
+				E40FE5B11ED0D6B4004947EF /* Resources */,
+				E46BEBEF1ED37BA1007F9A3A /* Embed Frameworks */,
+				E46BEBF01ED37BCA007F9A3A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExchangeAGram;
+			productName = ExchangeAGram;
+			productReference = E40FE5B31ED0D6B4004947EF /* ExchangeAGram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E40FE5C91ED0D6B4004947EF /* ExchangeAGramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40FE5D61ED0D6B4004947EF /* Build configuration list for PBXNativeTarget "ExchangeAGramUITests" */;
+			buildPhases = (
+				E40FE5C61ED0D6B4004947EF /* Sources */,
+				E40FE5C71ED0D6B4004947EF /* Frameworks */,
+				E40FE5C81ED0D6B4004947EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E40FE5CC1ED0D6B4004947EF /* PBXTargetDependency */,
+			);
+			name = ExchangeAGramUITests;
+			productName = ExchangeAGramUITests;
+			productReference = E40FE5CA1ED0D6B4004947EF /* ExchangeAGramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E40FE5AB1ED0D6B4004947EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = MarkMroz;
+				TargetAttributes = {
+					E40FE5B21ED0D6B4004947EF = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					E40FE5C91ED0D6B4004947EF = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E40FE5B21ED0D6B4004947EF;
+					};
+				};
+			};
+			buildConfigurationList = E40FE5AE1ED0D6B4004947EF /* Build configuration list for PBXProject "ExchangeAGram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E40FE5AA1ED0D6B4004947EF;
+			productRefGroup = E40FE5B41ED0D6B4004947EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E40FE5B21ED0D6B4004947EF /* ExchangeAGram */,
+				E40FE5C91ED0D6B4004947EF /* ExchangeAGramUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E40FE5B11ED0D6B4004947EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40FE5C41ED0D6B4004947EF /* LaunchScreen.storyboard in Resources */,
+				E46BEBEB1ED37AA7007F9A3A /* Sdk in Resources */,
+				E40FE5C11ED0D6B4004947EF /* Assets.xcassets in Resources */,
+				E40FE5BC1ED0D6B4004947EF /* Main.storyboard in Resources */,
+				E46BEBF21ED37C49007F9A3A /* AmazonAws in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40FE5C81ED0D6B4004947EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E46BEBF01ED37BCA007F9A3A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "bash \"/Users/markmroz/Desktop/ExchangeAGram/Sdk/CheckXcodeVersion.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E40FE5AF1ED0D6B4004947EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46BEC031ED37F77007F9A3A /* AWSMobileClient.swift in Sources */,
+				E47B71E81ED244A600F68ADD /* FilterViewController.swift in Sources */,
+				E47B71EA1ED247A000F68ADD /* FilterCell.swift in Sources */,
+				E40FE5BF1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld in Sources */,
+				E47B71ED1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift in Sources */,
+				E40FE5DA1ED0D824004947EF /* FeedViewController.swift in Sources */,
+				E40FE5B71ED0D6B4004947EF /* AppDelegate.swift in Sources */,
+				E46BEBE91ED36AB4007F9A3A /* ProfileViewController.swift in Sources */,
+				E47B71EE1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift in Sources */,
+				E47B71E61ED240D700F68ADD /* FeedCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40FE5C61ED0D6B4004947EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40FE5CF1ED0D6B4004947EF /* ExchangeAGramUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E40FE5CC1ED0D6B4004947EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40FE5B21ED0D6B4004947EF /* ExchangeAGram */;
+			targetProxy = E40FE5CB1ED0D6B4004947EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E40FE5BA1ED0D6B4004947EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E40FE5BB1ED0D6B4004947EF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E40FE5C21ED0D6B4004947EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E40FE5C31ED0D6B4004947EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E40FE5D11ED0D6B4004947EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E40FE5D21ED0D6B4004947EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E40FE5D41ED0D6B4004947EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sdk/Aws",
+					"$(PROJECT_DIR)/ExchangeAGram/AmazonAws",
+				);
+				INFOPLIST_FILE = ExchangeAGram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrozmark.ExchangeAGram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E40FE5D51ED0D6B4004947EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sdk/Aws",
+					"$(PROJECT_DIR)/ExchangeAGram/AmazonAws",
+				);
+				INFOPLIST_FILE = ExchangeAGram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrozmark.ExchangeAGram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E40FE5D71ED0D6B4004947EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ExchangeAGramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrozmark.ExchangeAGramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ExchangeAGram;
+			};
+			name = Debug;
+		};
+		E40FE5D81ED0D6B4004947EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ExchangeAGramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrozmark.ExchangeAGramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ExchangeAGram;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E40FE5AE1ED0D6B4004947EF /* Build configuration list for PBXProject "ExchangeAGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40FE5D11ED0D6B4004947EF /* Debug */,
+				E40FE5D21ED0D6B4004947EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E40FE5D31ED0D6B4004947EF /* Build configuration list for PBXNativeTarget "ExchangeAGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40FE5D41ED0D6B4004947EF /* Debug */,
+				E40FE5D51ED0D6B4004947EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E40FE5D61ED0D6B4004947EF /* Build configuration list for PBXNativeTarget "ExchangeAGramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40FE5D71ED0D6B4004947EF /* Debug */,
+				E40FE5D81ED0D6B4004947EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E40FE5BD1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E40FE5BE1ED0D6B4004947EF /* ExchangeAGram.xcdatamodel */,
+			);
+			currentVersion = E40FE5BE1ED0D6B4004947EF /* ExchangeAGram.xcdatamodel */;
+			path = ExchangeAGram.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E40FE5AB1ED0D6B4004947EF /* Project object */;
+}
