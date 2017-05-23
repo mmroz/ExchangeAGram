@@ -22,21 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cache = URLCache(memoryCapacity: 8 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
         URLCache.shared = cache
         
-        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
+        return true
     }
     
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         URLCache.shared.removeAllCachedResponses()
     }
-    
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return AWSMobileClient.sharedInstance.withApplication(application, withURL: url, withSourceApplication: sourceApplication, withAnnotation: annotation)
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        AWSMobileClient.sharedInstance.applicationDidBecomeActive(application)
-    }
+
     
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
