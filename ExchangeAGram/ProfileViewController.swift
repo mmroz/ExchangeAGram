@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
         
         nameLabel.text = user.name
         let userImageURL : NSString = "https://graph.facebook.com/\(user.objectID!)/picture?type=large" as NSString
-        let urlStr : NSString = userImageURL.addingPercentEscapes(using: String.Encoding.utf8.rawValue)! as NSString
+        let urlStr : NSString = userImageURL.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! as NSString
         let searchURL : NSURL = NSURL(string: urlStr as String)!
         
 

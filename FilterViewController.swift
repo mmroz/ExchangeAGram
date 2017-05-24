@@ -61,7 +61,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FilterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! FilterCell
         
-            if thisFeedItem.thumbNail != nil {
+            if let thumbNail = thisFeedItem.thumbNail {
                 cell.imageView.image = placeHolderImage
             
                 let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
@@ -179,17 +179,29 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func saveFilterToCoreData (indexPath: IndexPath, caption: String) {
-        let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
-        let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
         
-        self.thisFeedItem.image = imageData! as NSData
         
-        let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
         
-        self.thisFeedItem.thumbNail = thumbNailData! as NSData
-        self.thisFeedItem.caption = caption
         
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
+        
+        concurrentQueue.async(execute: { () -> Void in
+            
+            let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
+            let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+            
+            self.thisFeedItem.image = imageData! as NSData
+            
+            let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
+            
+            self.thisFeedItem.thumbNail = thumbNailData! as NSData
+            self.thisFeedItem.caption = caption
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+        })
+        
+        
         
         self.navigationController?.popViewController(animated: true)
     }
