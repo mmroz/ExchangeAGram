@@ -23,5 +23,8 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func mapViewButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "mapSegue", sender: nil)
+    }
 
 }

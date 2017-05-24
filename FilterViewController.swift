@@ -107,10 +107,6 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let sepia = CIFilter(name: "CISepiaTone") ?? CIFilter()
         sepia.setValue(kIntensity, forKey: kCIInputIntensityKey)
         
-//        let colorClamp = CIFilter(name: "CIColorClamp") ?? CIFilter()
-//        colorClamp.setValue(CIVector(x: 0.9, y: 0.9, z: 0.9, w: 0.9), forKey: "inputMaxComponents")
-//        colorClamp.setValue(CIVector(x: 0.2, y: 0.2, z: 0.2, w: 0.2), forKey: "inputMinComponents")
-        
         let composite = CIFilter(name: "CIHardLightBlendMode") ?? CIFilter()
         composite.setValue(sepia.outputImage, forKey: kCIInputImageKey)
         let vignette = CIFilter(name: "CIVignette") ?? CIFilter()
@@ -136,10 +132,10 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
     
-    // MARK: - Caching functions
+    // MARK: - Caching
     
     func cacheImage(imageNumber: Int) {
-        let fileName = "\(imageNumber)"
+        let fileName = "\(String(describing: thisFeedItem.uniqueID))\(imageNumber)"
         let uniquePath = tmp.stringByAppendingPathComponent(path: fileName)
         if !FileManager.default.fileExists(atPath: fileName) {
             let data = self.thisFeedItem.thumbNail
@@ -155,15 +151,17 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func getCachedImage (imageNumber: Int) -> UIImage {
-        let fileName = "\(imageNumber)"
+        let fileName = "\(String(describing: thisFeedItem.uniqueID))\(imageNumber)"
         let uniquePath = tmp.stringByAppendingPathComponent(path: fileName)
         var image : UIImage
         
         if FileManager.default.fileExists(atPath: uniquePath) {
-            image = UIImage(contentsOfFile: uniquePath)!
+            let returnedImage = UIImage(contentsOfFile: uniquePath)!
+            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
         } else {
             self.cacheImage(imageNumber: imageNumber)
-            image = UIImage(contentsOfFile: uniquePath)!
+            let returnedImage = UIImage(contentsOfFile: uniquePath)!
+            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
         }
         return image
     }

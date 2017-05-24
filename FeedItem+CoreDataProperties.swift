@@ -2,7 +2,7 @@
 //  FeedItem+CoreDataProperties.swift
 //  ExchangeAGram
 //
-//  Created by Mark Mroz on 2017-05-22.
+//  Created by Mark Mroz on 2017-05-23.
 //  Copyright © 2017 MarkMroz. All rights reserved.
 //
 
@@ -19,5 +19,9 @@ extension FeedItem {
     @NSManaged public var caption: String?
     @NSManaged public var image: NSData?
     @NSManaged public var thumbNail: NSData?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
+    @NSManaged public var uniqueID: String?
+    @NSManaged public var filtered: Bool
 
 }

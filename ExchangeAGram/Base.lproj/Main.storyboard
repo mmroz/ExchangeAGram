@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="n2b-et-625">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6FA-aD-kJZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -67,7 +67,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="j3h-q8-LB9">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="gWU-Yx-9Ap"/>
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="gWU-Yx-9Ap">
+                            <connections>
+                                <action selector="profileBarButtonItemTapped:" destination="BYZ-38-t0r" id="92y-iy-4bO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="hpW-yg-xj2">
                             <connections>
                                 <action selector="snapBarButtonItemTapped:" destination="BYZ-38-t0r" id="yhB-lf-4BH"/>
@@ -159,17 +163,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEI-8L-ccX">
+                                <rect key="frame" x="20" y="220" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.9256993442" blue="0.011197378569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Map View"/>
+                                <connections>
+                                    <action selector="mapViewButtonTapped:" destination="SfN-yI-oNr" eventType="touchUpInside" id="hmO-4L-2K9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="WIs-oq-OZZ" id="pc1-qY-aQZ"/>
                         <outlet property="profileImageView" destination="rO1-Su-Dci" id="HpO-fk-u8U"/>
+                        <segue destination="bl8-aZ-vPM" kind="show" identifier="mapSegue" id="R1T-W0-52n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQ5-eb-M04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1836" y="38"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="aO8-KE-hpH">
+            <objects>
+                <viewController id="bl8-aZ-vPM" customClass="MapViewController" customModule="ExchangeAGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ITm-UE-knI"/>
+                        <viewControllerLayoutGuide type="bottom" id="fk0-9O-KrQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9L-FJ-jF0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XXM-15-BOw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="XXM-15-BOw" id="zXn-mQ-WA7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EUs-ar-wgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="767.76611694152928"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="etB-k1-TJ4">

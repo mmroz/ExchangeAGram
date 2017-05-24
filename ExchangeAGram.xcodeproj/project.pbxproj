@@ -16,11 +16,13 @@
 		E46BEBE91ED36AB4007F9A3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */; };
 		E46BEC061ED38183007F9A3A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC051ED38183007F9A3A /* LoginViewController.swift */; };
 		E46BEC561ED43A5C007F9A3A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC551ED43A5C007F9A3A /* MapViewController.swift */; };
+		E46BEC571ED43D1A007F9A3A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */; };
+		E46BEC591ED43D24007F9A3A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEC581ED43D24007F9A3A /* MapKit.framework */; };
+		E46BEC601ED44785007F9A3A /* FeedItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC5E1ED44785007F9A3A /* FeedItem+CoreDataClass.swift */; };
+		E46BEC611ED44785007F9A3A /* FeedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC5F1ED44785007F9A3A /* FeedItem+CoreDataProperties.swift */; };
 		E47B71E61ED240D700F68ADD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E51ED240D700F68ADD /* FeedCell.swift */; };
 		E47B71E81ED244A600F68ADD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E71ED244A600F68ADD /* FilterViewController.swift */; };
 		E47B71EA1ED247A000F68ADD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71E91ED247A000F68ADD /* FilterCell.swift */; };
-		E47B71ED1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */; };
-		E47B71EE1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +64,12 @@
 		E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E46BEC051ED38183007F9A3A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		E46BEC551ED43A5C007F9A3A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		E46BEC581ED43D24007F9A3A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E46BEC5E1ED44785007F9A3A /* FeedItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataClass.swift"; path = "../FeedItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E46BEC5F1ED44785007F9A3A /* FeedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataProperties.swift"; path = "../FeedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E47B71E51ED240D700F68ADD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCell.swift; path = ../FeedCell.swift; sourceTree = "<group>"; };
 		E47B71E71ED244A600F68ADD /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = ../FilterViewController.swift; sourceTree = "<group>"; };
 		E47B71E91ED247A000F68ADD /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
-		E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataClass.swift"; path = "../FeedItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataProperties.swift"; path = "../FeedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46BEC591ED43D24007F9A3A /* MapKit.framework in Frameworks */,
+				E46BEC571ED43D1A007F9A3A /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +144,7 @@
 		E40FE5DD1ED0DAD1004947EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E46BEC581ED43D24007F9A3A /* MapKit.framework */,
 				E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
@@ -147,8 +153,8 @@
 		E47B71EF1ED3283600F68ADD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E47B71EB1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift */,
-				E47B71EC1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift */,
+				E46BEC5E1ED44785007F9A3A /* FeedItem+CoreDataClass.swift */,
+				E46BEC5F1ED44785007F9A3A /* FeedItem+CoreDataProperties.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -275,14 +281,14 @@
 			files = (
 				E47B71E81ED244A600F68ADD /* FilterViewController.swift in Sources */,
 				E47B71EA1ED247A000F68ADD /* FilterCell.swift in Sources */,
+				E46BEC611ED44785007F9A3A /* FeedItem+CoreDataProperties.swift in Sources */,
 				E40FE5BF1ED0D6B4004947EF /* ExchangeAGram.xcdatamodeld in Sources */,
-				E47B71ED1ED327DE00F68ADD /* FeedItem+CoreDataClass.swift in Sources */,
 				E40FE5DA1ED0D824004947EF /* FeedViewController.swift in Sources */,
 				E40FE5B71ED0D6B4004947EF /* AppDelegate.swift in Sources */,
 				E46BEBE91ED36AB4007F9A3A /* ProfileViewController.swift in Sources */,
 				E46BEC561ED43A5C007F9A3A /* MapViewController.swift in Sources */,
-				E47B71EE1ED327DE00F68ADD /* FeedItem+CoreDataProperties.swift in Sources */,
 				E47B71E61ED240D700F68ADD /* FeedCell.swift in Sources */,
+				E46BEC601ED44785007F9A3A /* FeedItem+CoreDataClass.swift in Sources */,
 				E46BEC061ED38183007F9A3A /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

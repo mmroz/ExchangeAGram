@@ -9,26 +9,28 @@
 import UIKit
 import MobileCoreServices
 import CoreData
+import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var feedArray: [AnyObject] = []
     
+    var locationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FeedItem")
-        let appDelegate:AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let context:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         
-        do {
-            feedArray = try context.fetch(request)
-        } catch {
-            feedArray = []
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,6 +83,11 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    @IBAction func profileBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "profileSegue", sender: nil)
+    }
+    
+    
     // MARK: - UICollectionView Data Source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -115,6 +122,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         feedItem.caption = "test caption"
         feedItem.thumbNail = thumbNailData as NSData?
         
+        feedItem.latitude = locationManager.location!.coordinate.latitude
+        feedItem.longitude = locationManager.location!.coordinate.longitude
+        
+        let UUID = NSUUID().uuidString
+        feedItem.uniqueID = UUID
+        
+        feedItem.filtered = false
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         feedArray.append(feedItem)
@@ -132,6 +147,12 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         filterVC.thisFeedItem = thisItem
         
         self.navigationController?.pushViewController(filterVC, animated: false)
+    }
+    
+    // MARK: - Location Manager Delegate
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        print("locations = \(locations)")
     }
 
 }
