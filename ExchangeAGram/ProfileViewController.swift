@@ -51,7 +51,6 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
             profileImageView.image = image
         } else {
             print("Unable to find Image for user named: " + "\(user.name)")
-            profileImageView.image = UIImage(named: "Placeholder")
         }
 
         

@@ -235,12 +235,15 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         var image : UIImage
         
         if FileManager.default.fileExists(atPath: uniquePath) {
-            let returnedImage = UIImage(contentsOfFile: uniquePath)!
-            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
+//            let returnedImage = UIImage(contentsOfFile: uniquePath)!
+//            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
+            image = UIImage(contentsOfFile: uniquePath)!
+            
         } else {
             self.cacheImage(imageNumber: imageNumber)
-            let returnedImage = UIImage(contentsOfFile: uniquePath)!
-            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
+//            let returnedImage = UIImage(contentsOfFile: uniquePath)!
+//            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
+            image = UIImage(contentsOfFile: uniquePath)!
         }
         return image
     }

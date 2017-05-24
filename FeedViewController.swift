@@ -19,8 +19,15 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var locationManager: CLLocationManager!
     
+    // MARK: - App Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backgroundImage = UIImage(named: "AutumnBackground")
+        if let backgroundImage = backgroundImage {
+            self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        }
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -28,8 +35,6 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 100.0
         locationManager.startUpdatingLocation()
-        
-        
         
     }
     
@@ -133,6 +138,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         feedArray.append(feedItem)
+        
         self.collectionView.reloadData()
         
         self.dismiss(animated: true, completion: nil)
