@@ -58,13 +58,13 @@
 			</array>
 		</dict>
 	</array>
+	<key>FacebookDisplayName</key>
+	<string>ExchnageAGrahm</string>
 	<key>PrivPrivacy - Location Usage Description</key>
 	<string>ExchnageAGram would like to use your location</string>
 	<key>NSLocationWhenInUsageDescription</key>
 	<string>ExchnageAGram would like to use your location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>ExchnageAGram would like to use your location</string>
-	<key>FacebookDisplayName</key>
-	<string>ExchnageAGrahm</string>
 </dict>
 </plist>

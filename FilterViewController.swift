@@ -80,13 +80,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
-        let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
-        self.thisFeedItem.image = imageData as NSData!
-        let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
-        self.thisFeedItem.thumbNail = thumbNailData! as NSData
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        self.navigationController?.popViewController(animated: true)
+        
+        createUIAlertController(indexPath: indexPath)
     }
     
     
@@ -130,6 +125,90 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         return finalImage
         
+    }
+    
+    // MARK: - UIAlertController
+    
+    func createUIAlertController (indexPath : IndexPath) {
+        let alert = UIAlertController(title: "Photo Options", message: "Please choose an option", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField { (textField) -> Void in
+            textField.placeholder = "Add Caption!"
+            textField.isSecureTextEntry = false
+        }
+        
+        
+        let photoAction = UIAlertAction(title: "Post Photo to Facebook with Caption", style: UIAlertActionStyle.destructive) { (UIAlertAction) -> Void in
+            
+            let text:String = {
+                let textField = alert.textFields![0] as UITextField
+                
+                if let text = textField.text {
+                    return text
+                } else {
+                    return ""
+                }
+            }()
+            
+            self.shareToFacebook(indexPath: indexPath)
+            self.saveFilterToCoreData(indexPath: indexPath, caption: text)
+        }
+        
+        let saveFilterAction = UIAlertAction(title: "Save Filter without posting on Facebook", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in
+            
+            let text:String = {
+                let textField = alert.textFields![0] as UITextField
+                
+                if let text = textField.text {
+                    return text
+                } else {
+                    return ""
+                }
+            }()
+            
+            self.saveFilterToCoreData(indexPath: indexPath, caption: text)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Select another Filter", style: UIAlertActionStyle.cancel) { (UIAlertAction) -> Void in
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(saveFilterAction)
+        alert.addAction(photoAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func saveFilterToCoreData (indexPath: IndexPath, caption: String) {
+        let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
+        let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+        
+        self.thisFeedItem.image = imageData! as NSData
+        
+        let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
+        
+        self.thisFeedItem.thumbNail = thumbNailData! as NSData
+        self.thisFeedItem.caption = caption
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func shareToFacebook (indexPath: IndexPath) {
+        let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
+        
+        let photos:NSArray = [filterImage] as NSArray
+        let params = FBPhotoParams()
+        params.photos = photos as! [Any]
+        
+        FBDialogs.presentShareDialog(with: params, clientState: nil) { (call, result, error) -> Void in
+            
+            if let result = result {
+                print(result)
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
     }
     
     // MARK: - Caching
