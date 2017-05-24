@@ -8,7 +8,13 @@
 
 import UIKit
 
+public protocol CustomFilterDelegate {
+    func onSaveCompleted(feedItem : FeedItem)
+}
+
+
 class FilterViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     
     // Constants
     
@@ -21,6 +27,11 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     var thisFeedItem: FeedItem!
     var collectionView: UICollectionView!
     var filters:[CIFilter] = []
+    
+    // MARK: - Delegate
+    
+    var delegate : CustomFilterDelegate!
+    
     
     // MARK: - Init
 
@@ -82,6 +93,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         createUIAlertController(indexPath: indexPath)
+        
     }
     
     
@@ -180,9 +192,6 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func saveFilterToCoreData (indexPath: IndexPath, caption: String) {
         
-        
-        
-        
         let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
         
         concurrentQueue.async(execute: { () -> Void in
@@ -199,8 +208,10 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.delegate.onSaveCompleted(feedItem: self.thisFeedItem)
+            })
         })
-        
         
         
         self.navigationController?.popViewController(animated: true)

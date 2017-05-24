@@ -11,7 +11,7 @@ import MobileCoreServices
 import CoreData
 import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, CustomFilterDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -150,8 +150,8 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let thisItem = feedArray[indexPath.row] as! FeedItem
         
         let filterVC = FilterViewController()
+        filterVC.delegate = self
         filterVC.thisFeedItem = thisItem
-        
         self.navigationController?.pushViewController(filterVC, animated: false)
     }
     
@@ -159,6 +159,13 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         print("locations = \(locations)")
+    }
+    
+    // MARK: - CustomFilterDelegate
+    
+    func onSaveCompleted(feedItem: FeedItem) {
+        self.feedArray.append(feedItem)
+        self.collectionView.reloadData()
     }
 
 }
