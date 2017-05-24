@@ -106,7 +106,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:FeedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FeedCell
-        let thisItem = feedArray[indexPath.row] as! FeedItem
+        let thisItem = feedArray[indexPath.section] as! FeedItem
         cell.imageView.image = UIImage(data: thisItem.image! as Data)
         cell.captionLabel.text = thisItem.caption
         return cell
