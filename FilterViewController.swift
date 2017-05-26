@@ -72,7 +72,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FilterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! FilterCell
         
-            if let thumbNail = thisFeedItem.thumbNail {
+            if let _ = thisFeedItem.thumbNail {
                 cell.imageView.image = placeHolderImage
             
                 let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
