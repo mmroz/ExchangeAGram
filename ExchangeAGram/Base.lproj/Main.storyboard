@@ -145,13 +145,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IJR-jS-B2i" firstAttribute="centerX" secondItem="ePk-oy-0G3" secondAttribute="centerX" id="7Vc-O8-Or1"/>
                             <constraint firstItem="rO1-Su-Dci" firstAttribute="top" secondItem="EAD-ap-6cu" secondAttribute="bottom" constant="8" id="90n-3K-HJg"/>
                             <constraint firstAttribute="leadingMargin" secondItem="rO1-Su-Dci" secondAttribute="leading" id="9nI-TG-G2D"/>
                             <constraint firstItem="XEI-8L-ccX" firstAttribute="top" secondItem="EAD-ap-6cu" secondAttribute="bottom" constant="8" id="J67-fR-7yD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IJR-jS-B2i" secondAttribute="trailing" constant="72" id="NkD-HC-46n"/>
-                            <constraint firstItem="IJR-jS-B2i" firstAttribute="leading" secondItem="ePk-oy-0G3" secondAttribute="leadingMargin" constant="71" id="NqR-lW-rGV"/>
                             <constraint firstAttribute="leadingMargin" secondItem="WIs-oq-OZZ" secondAttribute="leading" id="Tpj-sL-MKP"/>
-                            <constraint firstItem="XEI-8L-ccX" firstAttribute="leading" secondItem="rO1-Su-Dci" secondAttribute="trailing" constant="118" id="VaO-3T-eu6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XEI-8L-ccX" secondAttribute="trailing" constant="-4" id="t0c-DD-6Tg"/>
                             <constraint firstItem="IJR-jS-B2i" firstAttribute="top" secondItem="WIs-oq-OZZ" secondAttribute="bottom" constant="8" id="xly-lX-EyW"/>
                             <constraint firstItem="WIs-oq-OZZ" firstAttribute="top" secondItem="rO1-Su-Dci" secondAttribute="bottom" constant="8" id="yI3-4K-Cl5"/>
                         </constraints>

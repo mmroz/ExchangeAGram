@@ -37,9 +37,11 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let itemDimension = (view.bounds.width / 2.0) - 15
+        
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 150.0, height: 150.0)
+        layout.itemSize = CGSize(width: itemDimension, height: itemDimension)
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
@@ -85,8 +87,6 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         createUIAlertController(indexPath: indexPath)
         
     }
-    
-    
     
     // MARK: -  Helpers
     

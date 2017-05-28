@@ -125,8 +125,8 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
             feedItem.latitude = location.coordinate.latitude
             feedItem.longitude = location.coordinate.longitude
         } else {
-            feedItem.latitude = 122.4194
-            feedItem.longitude = 37.7749
+            feedItem.latitude = 37.7749
+            feedItem.longitude = 122.4194
         }
         
         let UUID = NSUUID().uuidString
