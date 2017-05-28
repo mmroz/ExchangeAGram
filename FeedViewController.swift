@@ -121,8 +121,13 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         feedItem.caption = "test caption"
         feedItem.thumbNail = thumbNailData as NSData?
         
-        feedItem.latitude = locationManager.location!.coordinate.latitude
-        feedItem.longitude = locationManager.location!.coordinate.longitude
+        if let location = locationManager.location {
+            feedItem.latitude = location.coordinate.latitude
+            feedItem.longitude = location.coordinate.longitude
+        } else {
+            feedItem.latitude = 122.4194
+            feedItem.longitude = 37.7749
+        }
         
         let UUID = NSUUID().uuidString
         feedItem.uniqueID = UUID
@@ -141,7 +146,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - UICollectionView Delegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let thisItem = feedArray[indexPath.row] as! FeedItem
+        let thisItem = feedArray[indexPath.section] as! FeedItem
         
         let filterVC = FilterViewController()
         filterVC.delegate = self
