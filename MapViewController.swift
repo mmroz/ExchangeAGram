@@ -17,8 +17,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FeedItem")
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
@@ -31,21 +29,14 @@ class MapViewController: UIViewController {
                     let region = MKCoordinateRegionMake(location, span)
                     mapView.setRegion(region, animated: true)
                     let annotation = MKPointAnnotation()
-                   annotation.coordinate = location
+                    annotation.coordinate = location
                     annotation.title = item.caption
                     self.mapView.addAnnotation(annotation)
                 }
             }
-        } catch {
-            print(Error.self)
+        } catch let e {
+            print("Unable to fetch feed items: \(e)")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 
 }

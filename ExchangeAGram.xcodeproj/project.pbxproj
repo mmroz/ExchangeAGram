@@ -14,7 +14,6 @@
 		E40FE5CF1ED0D6B4004947EF /* ExchangeAGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5CE1ED0D6B4004947EF /* ExchangeAGramUITests.swift */; };
 		E40FE5DA1ED0D824004947EF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40FE5D91ED0D824004947EF /* FeedViewController.swift */; };
 		E46BEBE91ED36AB4007F9A3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */; };
-		E46BEC061ED38183007F9A3A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC051ED38183007F9A3A /* LoginViewController.swift */; };
 		E46BEC561ED43A5C007F9A3A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46BEC551ED43A5C007F9A3A /* MapViewController.swift */; };
 		E46BEC571ED43D1A007F9A3A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */; };
 		E46BEC591ED43D24007F9A3A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46BEC581ED43D24007F9A3A /* MapKit.framework */; };
@@ -63,7 +62,6 @@
 		E40FE5D91ED0D824004947EF /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ../FeedViewController.swift; sourceTree = "<group>"; };
 		E40FE5DE1ED0DAD1004947EF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E46BEC051ED38183007F9A3A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		E46BEC551ED43A5C007F9A3A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
 		E46BEC581ED43D24007F9A3A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E46BEC5E1ED44785007F9A3A /* FeedItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataClass.swift"; path = "../FeedItem+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			children = (
 				E40FE5B61ED0D6B4004947EF /* AppDelegate.swift */,
 				E46BEC551ED43A5C007F9A3A /* MapViewController.swift */,
-				E46BEC051ED38183007F9A3A /* LoginViewController.swift */,
 				E46BEBE81ED36AB4007F9A3A /* ProfileViewController.swift */,
 				E49C53C31ED5C011000FE06C /* Bridging-Header.h */,
 				E47B71E71ED244A600F68ADD /* FilterViewController.swift */,
@@ -295,7 +292,6 @@
 				E46BEC561ED43A5C007F9A3A /* MapViewController.swift in Sources */,
 				E47B71E61ED240D700F68ADD /* FeedCell.swift in Sources */,
 				E46BEC601ED44785007F9A3A /* FeedItem+CoreDataClass.swift in Sources */,
-				E46BEC061ED38183007F9A3A /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,11 +20,6 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
         fbLoginView.delegate = self
         self.fbLoginView.readPermissions = ["public_profile", "publish_actions"]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func mapViewButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "mapSegue", sender: nil)
@@ -52,8 +47,6 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
         } else {
             print("Unable to find Image for user named: " + "\(user.name)")
         }
-
-        
     }
     
     func loginViewShowingLoggedOutUser(_ loginView: FBLoginView!) {

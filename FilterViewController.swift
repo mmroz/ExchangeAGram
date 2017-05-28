@@ -12,26 +12,25 @@ public protocol CustomFilterDelegate {
     func onSaveCompleted(feedItem : FeedItem)
 }
 
-
 class FilterViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    // MARK: - Constants
     
-    // Constants
+    static let kIntensity = 0.7
+    static let placeHolderImage = UIImage(named: "Placeholder")
+    static let temporaryWorkDirectory = NSTemporaryDirectory()
     
-    let kIntensity = 0.7
-    let placeHolderImage = UIImage(named: "Placeholder")
-    let tmp = NSTemporaryDirectory()
+    // MARK: - Properties
     
-    // Properties
-    var context:CIContext = CIContext(options: nil)
+    let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
+    var context = CIContext(options: nil)
     var thisFeedItem: FeedItem!
     var collectionView: UICollectionView!
-    var filters:[CIFilter] = []
+    var filters = [CIFilter]()
     
     // MARK: - Delegate
     
     var delegate : CustomFilterDelegate!
-    
     
     // MARK: - Init
 
@@ -52,13 +51,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         self.view.addSubview(collectionView)
         
-        filters = photoFilters()
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        filters = FilterViewController.photoFilters()
     }
     
     // MARK: - UICollectionView Data Source
@@ -73,10 +66,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell:FilterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! FilterCell
         
             if let _ = thisFeedItem.thumbNail {
-                cell.imageView.image = placeHolderImage
-            
-                let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
-            
+                cell.imageView.image = FilterViewController.placeHolderImage
                 concurrentQueue.async(execute: { () -> Void in
                     
                     let filterImage = self.getCachedImage(imageNumber: indexPath.row)
@@ -100,7 +90,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     // MARK: -  Helpers
     
-    func photoFilters () -> [CIFilter] {
+    static func photoFilters () -> [CIFilter] {
         let blur = CIFilter(name: "CIGaussianBlur") ?? CIFilter()
         let instant = CIFilter(name: "CIPhotoEffectInstant") ?? CIFilter()
         let noir = CIFilter(name: "CIPhotoEffectNoir") ?? CIFilter()
@@ -112,14 +102,14 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         colorControls.setValue(0.5, forKey: kCIInputSaturationKey)
         
         let sepia = CIFilter(name: "CISepiaTone") ?? CIFilter()
-        sepia.setValue(kIntensity, forKey: kCIInputIntensityKey)
+        sepia.setValue(FilterViewController.kIntensity, forKey: kCIInputIntensityKey)
         
         let composite = CIFilter(name: "CIHardLightBlendMode") ?? CIFilter()
         composite.setValue(sepia.outputImage, forKey: kCIInputImageKey)
         let vignette = CIFilter(name: "CIVignette") ?? CIFilter()
         vignette.setValue(composite.outputImage, forKey: kCIInputImageKey)
-        vignette.setValue(kIntensity * 2, forKey: kCIInputIntensityKey)
-        vignette.setValue(kIntensity * 30, forKey: kCIInputRadiusKey)
+        vignette.setValue(FilterViewController.kIntensity * 2, forKey: kCIInputIntensityKey)
+        vignette.setValue(FilterViewController.kIntensity * 30, forKey: kCIInputRadiusKey)
         
         return [blur, instant, noir, transfer, unsharpen, monochrome, colorControls, sepia, composite, vignette]
     }
@@ -131,7 +121,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let filteredImage:CIImage = filter.outputImage!
         
         let extent = filteredImage.extent
-        let cgImage: CGImage = context.createCGImage(filteredImage, from: extent)!
+        let cgImage = context.createCGImage(filteredImage, from: extent)!
         
         let finalImage = UIImage(cgImage: cgImage)
         
@@ -148,10 +138,9 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             textField.isSecureTextEntry = false
         }
         
-        
         let photoAction = UIAlertAction(title: "Post Photo to Facebook with Caption", style: UIAlertActionStyle.destructive) { (UIAlertAction) -> Void in
             
-            let text:String = {
+            let text: String = {
                 let textField = alert.textFields![0] as UITextField
                 
                 if let text = textField.text {
@@ -167,7 +156,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let saveFilterAction = UIAlertAction(title: "Save Filter without posting on Facebook", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in
             
-            let text:String = {
+            let text: String = {
                 let textField = alert.textFields![0] as UITextField
                 
                 if let text = textField.text {
@@ -191,10 +180,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func saveFilterToCoreData (indexPath: IndexPath, caption: String) {
-        
-        let concurrentQueue = DispatchQueue(label: "filter queue", attributes: .concurrent)
-        
-        concurrentQueue.async(execute: { () -> Void in
+        DispatchQueue.main.async(execute: { () -> Void in
             
             let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
             let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
@@ -208,9 +194,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
-            DispatchQueue.main.async(execute: { () -> Void in
-                self.delegate.onSaveCompleted(feedItem: self.thisFeedItem)
-            })
+            self.delegate.onSaveCompleted(feedItem: self.thisFeedItem)
         })
         
         
@@ -220,9 +204,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func shareToFacebook (indexPath: IndexPath) {
         let filterImage = self.filteredImageFromImage(imageData: self.thisFeedItem.image!, filter: self.filters[indexPath.row])
         
-        let photos:NSArray = [filterImage] as NSArray
         let params = FBPhotoParams()
-        params.photos = photos as! [Any]
+        params.photos = [filterImage]
         
         FBDialogs.presentShareDialog(with: params, clientState: nil) { (call, result, error) -> Void in
             
@@ -238,13 +221,13 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func cacheImage(imageNumber: Int) {
         let fileName = "\(String(describing: thisFeedItem.uniqueID))\(imageNumber)"
-        let uniquePath = tmp.stringByAppendingPathComponent(path: fileName)
+        let uniquePath = FilterViewController.temporaryWorkDirectory.stringByAppendingPathComponent(path: fileName)
         if !FileManager.default.fileExists(atPath: fileName) {
             let data = self.thisFeedItem.thumbNail
             let filter = self.filters[imageNumber]
             let image = filteredImageFromImage(imageData: data!, filter: filter)
             do {
-             try UIImageJPEGRepresentation(image, 1.0)!.write(to: URL(fileURLWithPath: uniquePath), options: .atomic)
+                try UIImageJPEGRepresentation(image, 1.0)!.write(to: URL(fileURLWithPath: uniquePath), options: .atomic)
             } catch {
                 print(error)
             }
@@ -254,18 +237,13 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func getCachedImage (imageNumber: Int) -> UIImage {
         let fileName = "\(String(describing: thisFeedItem.uniqueID))\(imageNumber)"
-        let uniquePath = tmp.stringByAppendingPathComponent(path: fileName)
+        let uniquePath = FilterViewController.temporaryWorkDirectory.stringByAppendingPathComponent(path: fileName)
         var image : UIImage
         
         if FileManager.default.fileExists(atPath: uniquePath) {
-//            let returnedImage = UIImage(contentsOfFile: uniquePath)!
-//            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
             image = UIImage(contentsOfFile: uniquePath)!
-            
         } else {
             self.cacheImage(imageNumber: imageNumber)
-//            let returnedImage = UIImage(contentsOfFile: uniquePath)!
-//            image = UIImage(cgImage: returnedImage.cgImage!, scale: 1.0, orientation: UIImageOrientation.right)
             image = UIImage(contentsOfFile: uniquePath)!
         }
         return image
@@ -274,12 +252,6 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
 
 extension String {
     func stringByAppendingPathComponent(path: String) -> String {
-        let nsSt = self as NSString
-        return nsSt.appendingPathComponent(path)
+        return (self as NSString).appendingPathComponent(path)
     }
 }
-
-
-
-
-
